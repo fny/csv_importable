@@ -43,7 +43,7 @@ module CsvImportable
       if valid? && !executed?
         if defined?(ActiveRecord::Import)
           model.import(imported_records)
-        elsif options[:trasaction]
+        elsif @options[:trasaction]
           ActiveRecord::Base.transaction do
             imported_records.each(&:save!)
           end
